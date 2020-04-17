@@ -1,0 +1,25 @@
+15:50:17 **** Incremental Build of configuration Debug for project arduino_cpp ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\main.cpp -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu++98 -DSTM32F334x8 -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../src -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\main.o 
+In file included from ..\src\main.cpp:35:0:
+../Drivers/STM32F3xx_HAL_Driver/Inc/PID_AutoTune_v0.h:3:0: warning: "LIBRARY_VERSION" redefined
+ #define LIBRARY_VERSION 0.0.1
+ 
+In file included from ..\src\main.cpp:34:0:
+../Drivers/STM32F3xx_HAL_Driver/Inc/PID_v1.h:3:0: note: this is the location of the previous definition
+ #define LIBRARY_VERSION 1.2.1
+ 
+arm-atollic-eabi-g++ -o arduino_cpp.elf src\PID_AutoTune_v0.o src\PID_v0.o src\main.o src\startup_stm32f334x8.o src\system_stm32f3xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../stm32f30_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=arduino_cpp.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list arduino_cpp.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   8236	    224	   1720	  10180	   27c4	arduino_cpp.elf
+Print size information done
+Generate listing file
+Output sent to: arduino_cpp.list
+Generate listing file done
+Generate build reports done
+
+15:50:18 Build Finished (took 662ms)
+

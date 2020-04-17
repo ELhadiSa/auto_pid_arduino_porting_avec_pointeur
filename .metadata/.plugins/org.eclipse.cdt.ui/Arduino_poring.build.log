@@ -1,0 +1,55 @@
+15:03:27 **** Incremental Build of configuration Debug for project Arduino_poring ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=gnu11 -DUSE_HAL_DRIVER -DSTM32F334x8 -I../../../Inc -I../../../Drivers/STM32F3xx_HAL_Driver/Inc -I../../../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../../../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../../../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o Application\User\main.o ..\..\..\Src\main.c 
+..\..\..\Src\main.c: In function 'main':
+..\..\..\Src\main.c:163:29: warning: unused variable 'serialTime' [-Wunused-variable]
+   unsigned long  modelTime, serialTime;
+                             ^~~~~~~~~~
+..\..\..\Src\main.c:163:18: warning: unused variable 'modelTime' [-Wunused-variable]
+   unsigned long  modelTime, serialTime;
+                  ^~~~~~~~~
+..\..\..\Src\main.c:162:11: warning: unused variable 'tuning' [-Wunused-variable]
+   boolean tuning = false;
+           ^~~~~~
+..\..\..\Src\main.c:160:16: warning: unused variable 'aTuneLookBack' [-Wunused-variable]
+   unsigned int aTuneLookBack=20;
+                ^~~~~~~~~~~~~
+..\..\..\Src\main.c:159:38: warning: unused variable 'aTuneStartValue' [-Wunused-variable]
+   double aTuneStep=50, aTuneNoise=1, aTuneStartValue=100;
+                                      ^~~~~~~~~~~~~~~
+..\..\..\Src\main.c:159:24: warning: unused variable 'aTuneNoise' [-Wunused-variable]
+   double aTuneStep=50, aTuneNoise=1, aTuneStartValue=100;
+                        ^~~~~~~~~~
+..\..\..\Src\main.c:159:10: warning: unused variable 'aTuneStep' [-Wunused-variable]
+   double aTuneStep=50, aTuneNoise=1, aTuneStartValue=100;
+          ^~~~~~~~~
+..\..\..\Src\main.c:158:10: warning: unused variable 'outputStart' [-Wunused-variable]
+   double outputStart=5;
+          ^~~~~~~~~~~
+..\..\..\Src\main.c:157:33: warning: unused variable 'theta' [-Wunused-variable]
+   double kpmodel=1.5, taup=100, theta[50];
+                                 ^~~~~
+..\..\..\Src\main.c:157:23: warning: unused variable 'taup' [-Wunused-variable]
+   double kpmodel=1.5, taup=100, theta[50];
+                       ^~~~
+..\..\..\Src\main.c:157:10: warning: unused variable 'kpmodel' [-Wunused-variable]
+   double kpmodel=1.5, taup=100, theta[50];
+          ^~~~~~~
+..\..\..\Src\main.c:153:8: warning: unused variable 'ATuneModeRemember' [-Wunused-variable]
+   byte ATuneModeRemember=2;
+        ^~~~~~~~~~~~~~~~~
+arm-atollic-eabi-gcc -o Arduino_poring.elf Application\TrueSTUDIO\startup_stm32f334x8.o Application\TrueSTUDIO\syscalls.o Application\User\main.o Application\User\stm32f3xx_hal_msp.o Application\User\stm32f3xx_it.o Drivers\CMSIS\system_stm32f3xx.o Drivers\STM32F3xx_HAL_Driver\stm32f3xx_hal.o Drivers\STM32F3xx_HAL_Driver\stm32f3xx_hal_cortex.o Drivers\STM32F3xx_HAL_Driver\stm32f3xx_hal_dma.o Drivers\STM32F3xx_HAL_Driver\stm32f3xx_hal_exti.o Drivers\STM32F3xx_HAL_Driver\stm32f3xx_hal_flash.o Drivers\STM32F3xx_HAL_Driver\stm32f3xx_hal_flash_ex.o Drivers\STM32F3xx_HAL_Driver\stm32f3xx_hal_gpio.o Drivers\STM32F3xx_HAL_Driver\stm32f3xx_hal_i2c.o Drivers\STM32F3xx_HAL_Driver\stm32f3xx_hal_i2c_ex.o Drivers\STM32F3xx_HAL_Driver\stm32f3xx_hal_pwr.o Drivers\STM32F3xx_HAL_Driver\stm32f3xx_hal_pwr_ex.o Drivers\STM32F3xx_HAL_Driver\stm32f3xx_hal_rcc.o Drivers\STM32F3xx_HAL_Driver\stm32f3xx_hal_rcc_ex.o Drivers\STM32F3xx_HAL_Driver\stm32f3xx_hal_tim.o Drivers\STM32F3xx_HAL_Driver\stm32f3xx_hal_tim_ex.o -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T../Debug_STM32F334C8_FLASH.ld -specs=nosys.specs -static -Wl,-Map=Arduino_poring.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list Arduino_poring.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   6424	     20	    364	   6808	   1a98	Arduino_poring.elf
+Print size information done
+Generate listing file
+Output sent to: Arduino_poring.list
+Generate listing file done
+Generate build reports done
+arm-atollic-eabi-objcopy.exe -O ihex Arduino_poring.elf Arduino_poring.hex 
+
+15:03:28 Build Finished (took 794ms)
+
