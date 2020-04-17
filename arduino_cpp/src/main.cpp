@@ -38,6 +38,8 @@ SOFTWARE.
 #define byte int8_t
 #define boolean bool
 /* Private variables */
+
+
 byte ATuneModeRemember=2;
 double input=80, output=50, setpoint=180;
 double kp=2,ki=0.5,kd=2;
@@ -63,6 +65,9 @@ void AutoTuneHelper(boolean start);
 void SerialSend();
 void SerialReceive();
 void DoModel();
+void TIM7_DAC2_IRQHandler();
+
+
 
 /* Private functions */
 unsigned long millis(){
@@ -223,8 +228,6 @@ void DoModel()
 
 
 
-
-
 /**
 **===========================================================================
 **
@@ -234,6 +237,39 @@ void DoModel()
 */
 int main(void)
 {
+	// Enable TIM7 clock
+		RCC->APB1ENR |= RCC_APB1ENR_TIM7EN;
+
+		// Reset TIM6 configuration
+		TIM7->CR1 = 0x0000;
+		TIM7->CR2 = 0x0000;
+
+		// Set TIM7 prescaler
+		// Fck = 8MHz -> /8 = 100kHz counting frequency
+		TIM7->PSC = (uint16_t) 0;
+
+		// Set TIM7 auto-reload register for 1ms
+		TIM7->ARR = (uint16_t) 100;
+
+		// Enable auto-reload preload
+		TIM7->CR1 |= TIM_CR1_ARPE;
+
+		// Enable Interrupt upon Update Event
+		TIM7->DIER |= TIM_DIER_UIE;
+
+		// Start TIM7 counter
+		TIM7->CR1 |= TIM_CR1_CEN;
+
+
+		// Set priority level 1 for TIM6 interrupt
+			NVIC_SetPriority(TIM7_DAC2_IRQn, 1);
+
+			// Enable TIM6 interrupts
+			NVIC_EnableIRQ(TIM7_DAC2_IRQn);
+
+
+
+
  setup();
 
 
@@ -247,4 +283,16 @@ loop();
 }
 
 
+void TIM7_DAC2_IRQHandler()
+{
+	// Test for TIM6 update pending interrupt
+	if ((TIM7->SR & TIM_SR_UIF) == TIM_SR_UIF)
+	{
+		// Clear pending interrupt flag
+		TIM7->SR &= ~TIM_SR_UIF;
+
+		// Do what you need
+
+	}
+}
 

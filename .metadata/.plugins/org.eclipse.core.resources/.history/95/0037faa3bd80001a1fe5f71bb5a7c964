@@ -1,0 +1,16 @@
+/*
+ * main.h
+ *
+ *  Created on: 17 avr. 2020
+ *      Author: pc
+ */
+
+#ifndef MAIN_H_
+#define MAIN_H_
+
+
+#include "stm32f3xx_hal.h"
+#include "stm32f303x8.h"
+
+
+#endif /* MAIN_H_ */
